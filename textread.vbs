@@ -1,3 +1,4 @@
+'test
 'Read a text file
 
 'iomode
