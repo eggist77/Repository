@@ -1,0 +1,39 @@
+/* gist customize start */
+
+/* コード表示ボックス */
+.gist .gist-file {
+  border-color: #313131!important;
+}
+
+/* コード表示ボックス */
+.gist-data {
+  max-height: 400px!important;
+}
+
+/* コード表示ボックス テーブル */
+.gist .gist-data table {
+  background: #eeeeee;
+}
+
+/* コード表示ボックス偶数行の背景色を変更 */
+.gist table.highlight tr:nth-child(2n) td {
+  background: #dedede;
+}
+
+/* コードのフォントを太字にする */
+.gist table.highlight tr td, table.highlight tr td span {
+  font-weight: bold;
+}
+
+/* コード番号 */
+.gist .blob-num {
+    border: 0;
+}
+
+/* メタ情報(一番下)エリア */
+.gist .gist-meta {
+  background-color: #202020!important;
+  color: #586069;
+}
+
+/* gist customize end */
