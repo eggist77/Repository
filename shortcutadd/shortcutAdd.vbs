@@ -9,7 +9,7 @@ Set fso = CreateObject("Scripting.FileSystemObject")
 Set wsh = CreateObject("WScript.Shell")
 
 crDir = fso.getParentFolderName(WScript.ScriptFullName)
-Set f = fso.OpenTextFile(crDir & "\list.txt", 1)
+Set f = fso.OpenTextFile(crDir & "\sclist.txt", 1)
 
 Do Until f.AtEndOfStream
   line = f.ReadLine
@@ -18,7 +18,6 @@ Do Until f.AtEndOfStream
 Loop
 
 f.Close
-
 
 Sub shortCutAdd(scname,exePath)
 
