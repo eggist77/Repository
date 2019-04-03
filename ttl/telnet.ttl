@@ -1,0 +1,18 @@
+
+; telnet
+connect '192.168.0.1:23 /nossh /T=1'
+
+; login
+wait 'login:'
+sendln 'user'
+
+wait 'Password:' 
+sendln 'password'
+
+; 5sec pause
+pause 5
+
+; logout
+sendln 'exit'
+
+end
