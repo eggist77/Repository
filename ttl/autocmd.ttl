@@ -1,0 +1,60 @@
+;autocmd.ttl
+
+macroname = 'autocmd'
+cmdlist = 'cmdlist.txt'
+prompt1 = '$'
+prompt2 = '#'
+timeout = 15
+
+;コマンドリストチェック
+filesearch cmdlist
+if result=0 then
+    yesnobox 'コマンドリストが見つかりません。作成しますか？' macroname
+    if result=1 then
+        filecreate fhandle cmdlist
+        filewriteln fhandle ';;でコメントアウトできます'
+        filewriteln fhandle ';実行できるコマンドはshowコマンドとpingコマンドです。'
+        fileclose fhandle
+    else
+        messagebox '処理を終了します。' macroname
+        goto end
+    endif
+endif
+
+;コマンドリスト編集
+strconcat cmd 'notepad '
+strconcat cmd cmdlist
+exec cmd 'show' 1
+
+fileopen fhandle cmdlist 0
+
+:loop
+filereadln fhandle line
+if result=1 goto fclose
+
+;コメントアウト判定
+strcopy line 1 1 tmp
+strcompare tmp ';'
+if result<>0 then
+
+    strcopy line 1 4 cmdname
+
+    strcompare cmdname 'show'
+    if result=0 then
+        sendln line
+        wait prompt1 prompt2
+    endif
+
+    strcompare cmdname 'ping'
+    if result=0 then
+        sendln line
+        wait prompt1 prompt2
+    endif
+endif
+
+goto loop
+
+:fclose
+fileclose fhandle
+
+:end
