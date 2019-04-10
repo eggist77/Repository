@@ -6,13 +6,13 @@
 ; @update : 2019/4/9
 ;------------------------------------------------------
 
-terget='192.168.0.1'
+target='192.168.0.1'
 username='user'
 password='password'
 
 ; telnet
-strconcat terget ':23 /nossh /T=1'
-connect terget
+strconcat target ':23 /nossh /T=1'
+connect target
 
 ; login
 wait 'login:'
