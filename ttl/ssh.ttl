@@ -1,0 +1,26 @@
+;------------------------------------------------------
+; @description : ssh for CentOS
+; @auther : n
+; @version : 1.0
+; @since : 2019/4/9
+; @update : 2019/4/9
+;------------------------------------------------------
+
+target='192.168.0.1'
+username='user'
+password='password'
+
+; ssh
+strconcat target ':22 /ssh /2 /auth=password /user='
+strconcat target username
+strconcat target ' /passwd='
+strconcat target password
+connect target
+
+; 5sec pause
+pause 5
+
+; logout
+sendln 'exit'
+
+end
