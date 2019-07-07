@@ -1,3 +1,102 @@
+/* <system section="theme" selected="solid"> */
+@import "/css/theme/solid/solid.css";
+/* </system> */
+
+body {
+    font-family: Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    background: #202020;
+}
+
+.archive-date {
+    display:none;
+}
+
+.archive-entry-body {
+    display:none;
+}
+
+.archive-entry > .categories {
+    display:none;
+}
+
+.archive-entry > .entry-thumb-link {
+    display:none;
+}
+
+.page-archive .archive-entry {
+    margin-bottom: 10px;
+}
+
+/* Index */
+.entry-content h1, h5, h6 {
+  text-decoration: line-through;
+}
+
+.entry-content h2 {
+  background: #20488f;
+  font-size: 110%;
+  font-weight: bold;
+  padding: 0.3em;
+  padding-left: 1em;
+  border-left: none;
+  border-radius: 0.5em;
+}
+
+.entry-content h3 {
+  font-size: 110%;
+  font-weight: bold;
+  border-left: none;
+  border-left: 10px solid #2d70a4;
+  border-bottom: 2px solid #2d70a4;
+  padding-left: 0.5em;
+}
+
+.entry-content h4 {
+  font-size: 110%;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+/* Archive List */
+ul.table-of-contents:before {
+content: "INDEX";
+font-size: 120%;
+font-weight: bold;
+}
+
+ul.table-of-contents {
+    border: 1px solid #333333; 
+    border-radius: 8px;
+    padding: 20px 0px 20px 40px;
+    background-color: #272727;
+    margin-bottom: 50px;
+}
+
+ul.table-of-contents li {
+  line-height: 1.5;
+  padding: 0;
+  margin: 5px 5px 5px 5px;
+}
+
+/* Body */
+/* div#container-inner default:951px -> 1051px */
+div#container div#container-inner {
+    width: 1051px;
+}
+
+/* div#main default:600px -> 700px */
+div#container div#container-inner div#main {
+    width: 700px;
+}
+
+.entry-header {
+    padding-right: 200px;
+}
+
+.entry-footer {
+    margin-top: 150px;
+}
+
 /* gist customize start */
 
 /* コード表示ボックス */
@@ -12,7 +111,7 @@
 
 /* コード表示ボックス テーブル */
 .gist .gist-data table {
-  background: #eeeeee;
+  background: #d5d5d5;
 }
 
 /* コード表示ボックス偶数行の背景色を変更 */
