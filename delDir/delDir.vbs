@@ -12,6 +12,7 @@ Dim fso
 txtFile = "delDir.log"
 dir = "delDirTest"
 daysBefore = 1
+delFlag = False
 
 Set fso = CreateObject("Scripting.FileSystemObject")
 Set f = fso.OpenTextFile(txtFile, ForAppending, True)
@@ -31,24 +32,25 @@ For Each item In items.SubFolders
     Set items2 = fso.GetFolder(toolDir & "\" & item.Name)
 
     ' FolderCheck
-    cnt = 0
+    folderCnt = 0
     For Each item2 In items2.SubFolders
-      cnt = cnt + 1
+      folderCnt = folderCnt + 1
     Next
 
-    if cnt = 0 then
-
+    if folderCnt = 0 then
       ' FileCheck
-      cnt = 0
+      fileCnt = 0
       For Each item2 In items2.Files
-        msgbox item2.Name & "    " & item2.type
+        ' textCheck
+        msgbox item2.name & " " & item2.type
       Next
     End If
 
+    msgbox "folderCnt:" & folderCnt & vbCrlf & "fileCnt:" & fileCnt
 
+    ' Folder Delete
     msgbox item.Name & "    " & cnt
-
-
+    delFlag = False
 
   End If
 Next
