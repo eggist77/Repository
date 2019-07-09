@@ -27,7 +27,7 @@ For Each item In items.SubFolders
 
     f.WriteLine now() & "," & item.name & "," & item.DateCreated
 
-    ' フォルダの中身をチェック
+    '
     Set items2 = fso.GetFolder(toolDir & "\" & item.Name)
 
     ' FolderCheck
@@ -44,7 +44,7 @@ For Each item In items.SubFolders
       End If
     Else
       f.WriteLine now() & "," & item.name & ",Folder Find"
-      
+
     End If
 
     ' Folder Delete
@@ -58,7 +58,7 @@ exit Sub
 
 If fso.FolderExists(dir) Then
   fso.DeleteFolder(dir)
-  f.WriteLine(dir & "削除しました")
+  f.WriteLine(dir & "")
 End If
 
 f.Close
