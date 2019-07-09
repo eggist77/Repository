@@ -11,7 +11,7 @@ Dim fso
 
 txtFile = "delDir.log"
 dir = "delDirTest"
-daysBefore = 1
+daysBefore = 7
 delFlag = False
 
 Set fso = CreateObject("Scripting.FileSystemObject")
@@ -22,31 +22,30 @@ Set items = fso.GetFolder(toolDir)
 
 For Each item In items.SubFolders
 
-  ' 作成日付チェック
-  WScript.Echo item.Name & " " & item.DateCreated
-  WScript.Echo DateDiff("d", now(), item.DateCreated)
+  'If DateDiff("d", now(), item.DateCreated) = 0 then
+  If DateDiff("s", item.DateCreated, now()) >= daysBefore then
 
-  If DateDiff("d", now(), item.DateCreated) = 0 then
+    f.WriteLine now() & "," & item.name & "," & item.DateCreated
 
     ' フォルダの中身をチェック
     Set items2 = fso.GetFolder(toolDir & "\" & item.Name)
 
     ' FolderCheck
-    folderCnt = 0
-    For Each item2 In items2.SubFolders
-      folderCnt = folderCnt + 1
-    Next
+    If items2.SubFolders.Count = 0 Then
 
-    if folderCnt = 0 then
       ' FileCheck
       fileCnt = 0
       For Each item2 In items2.Files
         ' textCheck
         msgbox item2.name & " " & item2.type
       Next
-    End If
 
-    msgbox "folderCnt:" & folderCnt & vbCrlf & "fileCnt:" & fileCnt
+      If fileCnt = 0 Then
+      End If
+    Else
+      f.WriteLine now() & "," & item.name & ",Folder Find"
+      
+    End If
 
     ' Folder Delete
     msgbox item.Name & "    " & cnt
