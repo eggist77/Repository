@@ -1,0 +1,11 @@
+<job id="sample">
+
+<script language="VBScript" src="./dateFormat.vbs"></script>
+
+<script language="VBScript">
+
+msgbox dateFormat("yyyymmdd")
+
+</script>
+
+</job>

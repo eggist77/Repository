@@ -1,6 +1,4 @@
 
-msgbox dateFormat("yyyymmddhhmm")
-
 Function dateFormat(format)
 
 ' format
