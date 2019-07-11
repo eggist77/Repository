@@ -3,7 +3,7 @@ reservedWordCheck()
 
 Sub reservedWordCheck()
 
-Dim format
+Dim version
 
 WScript.Echo "OK"
 

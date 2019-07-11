@@ -1,8 +1,7 @@
 
-
-delDir()
-
-Function delDir()
+<job id="delDir">
+<script language="VBScript" src="./nLib.vbs"></script>
+<script language="VBScript">
 
 'iomode
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
@@ -12,10 +11,11 @@ Dim logFile
 Dim file, folder
 Dim tmpFolder, tmpFile
 
-fileName = "delDir.log"
+Set fso = CreateObject("Scripting.FileSystemObject")
+
+fileName = fso.getBaseName(WScript.ScriptName) & "_" & dateFormat("yyyymmdd") & ".log"
 daysBefore = 7
 
-Set fso = CreateObject("Scripting.FileSystemObject")
 Set logFile = fso.OpenTextFile(fileName, ForAppending, True)
 toolDir = fso.getParentFolderName(WScript.ScriptFullName)
 
@@ -53,4 +53,5 @@ Next
 
 logFile.Close
 
-End Function
+</script>
+</job>
