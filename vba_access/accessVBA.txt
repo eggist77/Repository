@@ -1,0 +1,30 @@
+'保存ボタン
+Private Sub saveBtn_Click()
+    DoCmd.RunCommand acCmdSaveRecord
+End Sub
+
+'キャンセルボタン
+Private Sub canselBtn_Click()
+  Me.Undo
+End Sub
+
+'終了ボタン
+Private Sub closeBtn_Click()
+    If Me.Dirty Then
+        If MsgBox("データが更新されてます。保存して終了しますか。", vbOKCancel) = vbCancel Then
+            Exit Sub
+        Else
+            saveBtn_Click()
+        End If
+    End If
+    DoCmd.Close
+End Sub
+
+' 更新前確認
+Private Sub Form_BeforeUpdate(Cancel As Integer)
+    res = MsgBox("データを更新しますか", vbYesNo)
+    If res = vbNo Then
+        Cancel = True
+        Me.Undo
+    End If
+End Sub
