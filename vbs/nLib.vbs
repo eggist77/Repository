@@ -1,22 +1,39 @@
 
-'nLib Version = 1.1
+'nLib Version = 1.11
 
-Function dateFormat(format)
+Function dateFormat(ByVal format)
 
   ' format
-  ' yyyymmdd
+  ' yyyymm
+  ' yyyymmdd(default)
   ' yyyymmddhhmmss
+  ' yyyymmdd_hhmmss
   ' yyyymmddhhmm
+  ' yyyymmdd_hhmm
 
   format = LCase(format)
 
   Select Case format
+  Case "yyyymm"
+    dateFormat = Replace(Left(Now(),8), "/", "")
   Case "yyyymmdd"
     dateFormat = Replace(Left(Now(),10), "/", "")
   Case "yyyymmddhhmmss"
-    dateFormat = Replace(Replace(Replace(Now(), "/", ""), ":", ""), " ", "")
+    dateFormat = Replace(Mid(Now(),12), ":", "")
+    if Len(dateFormat) = 5 Then dateFormat = "0" & dateFormat
+    dateFormat = Replace(Left(Now(),10), "/", "") & dateFormat
+  Case "yyyymmdd_hhmmss"
+    dateFormat = Replace(Mid(Now(),12), ":", "")
+    if Len(dateFormat) = 5 Then dateFormat = "0" & dateFormat
+    dateFormat = Replace(Left(Now(),10), "/", "") & "_" & dateFormat
   Case "yyyymmddhhmm"
-    dateFormat = Replace(Replace(Replace(Left(Now(),16), "/", ""), ":", ""), " ", "")
+    dateFormat = Replace(Mid(Now(),12), ":", "")
+    if Len(dateFormat) = 5 Then dateFormat = "0" & dateFormat
+    dateFormat = Replace(Left(Now(),10), "/", "") & Left(dateFormat,4)
+  Case "yyyymmdd_hhmm"
+    dateFormat = Replace(Mid(Now(),12), ":", "")
+    if Len(dateFormat) = 5 Then dateFormat = "0" & dateFormat
+    dateFormat = Replace(Left(Now(),10), "/", "") & "_" & Left(dateFormat,4)
   Case Else
     dateFormat = Replace(Left(Now(),10), "/", "")
   End Select
@@ -26,19 +43,10 @@ Function isTextOnlyInFolder(ByVal folderName)
 
     Dim fso
     Dim folder
-    Dim iFolder, iNotText
+    Dim iNotText
 
     Set fso = CreateObject("Scripting.FileSystemObject")
-
     Set folder = fso.GetFolder(folderName)
-
-    'SubFolder Check
-    iFolder = 0
-    For Each tmp In folder.SubFolders
-
-        WScript.Echo "folder," & tmp.name
-        iFolder = iFolder + 1
-    Next
 
     'File Check
     iNotText = 0
@@ -50,11 +58,12 @@ Function isTextOnlyInFolder(ByVal folderName)
         End If
     Next
 
-    WScript.Echo "Folder Count: " & iFolder & vbCrLf & "Folder Count: " & iNotText
+    WScript.Echo "Folder Count: " & folder.SubFolders.Count & vbCrLf & _
+                 "Folder Count: " & iNotText
 
     'Judgment
     isTextOnlyInFolder = False
-    If iFolder = 0 And iNotText = 0 Then
+    If folder.SubFolders.Count = 0 And iNotText = 0 Then
         isTextOnlyInFolder = True
     Else
         isTextOnlyInFolder = False
