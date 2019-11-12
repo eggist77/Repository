@@ -1,9 +1,9 @@
 ;------------------------------------------------------
 ; @description : ssh for CentOS
 ; @auther : n
-; @version : 1.0
+; @version : 1.1
 ; @since : 2019/4/9
-; @update : 2019/4/9
+; @update : 2019/11/12
 ;------------------------------------------------------
 
 target='192.168.0.1'
@@ -19,6 +19,12 @@ connect target
 
 ; 5sec pause
 pause 5
+
+; log
+logopen 'C:\Logs\teraterm\logname.txt' 0 0
+logwrite 'log write start'#13#10
+logwrite 'log write end'#13#10
+logclose
 
 ; logout
 sendln 'exit'
