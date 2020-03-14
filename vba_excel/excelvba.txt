@@ -1,7 +1,7 @@
 Sub formatCondition()
 
     Dim r As Range
-    Dim formatCondition
+    Dim formatCondition As FormatCondition
     
     '範囲設定
     Set r = Range("A1:A5")
