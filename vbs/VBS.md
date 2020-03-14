@@ -1,6 +1,8 @@
 
+【Folder】
+
 ciscolog_to_csv
-ciscoのログをCSV形式に変換する
+ciscoのログをCSV形式に変換するスクリプト
 
 delDir
 フォルダを削除するスクリプト
@@ -8,32 +10,27 @@ delDir
 iniRead
 iniファイルを読み取るためのスクリプト
 
-nLib.vbs
-nLib.md
-ライブラリ
+shortcutadd
+ショートカットを作成するスクリプト
 
+toZip_Lpls
+Lhaplusを使ってファイルをZip化するスクリプト
 
+nLib
+自作ライブラリファイルを保存
 
-
+【File】
 pathGet.vbs
 パスを取得するスクリプト
-
 
 procGet.vbs
 プロセスを取得するスクリプト
 
-
 reservedWordCheck.vbs
-
-
-shortcutadd
-ショートカットを作成するスクリプト
 
 template.vbs
 
-
 template.wsf
-
 
 textMerge.vbs
 テキストファイルをマージするスクリプト
@@ -44,8 +41,7 @@ textRead.vbs
 textWrite.vbs
 テキストを書き込むスクリプト
 
-toZip_Lpls
-
-
-
 wmiClassGet.vbs
+
+VBS.md
+スクリプト一覧
