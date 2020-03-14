@@ -11,13 +11,13 @@ Sub formatCondition()
     
     '書式の指定(濃い緑の文字、緑の背景)
     With formatCondition.Font
-        .Color = -16752384
+        .Color = RGB(0, 97, 0)
         .TintAndShade = 0
     End With
     
     With formatCondition.Interior
         .PatternColorIndex = xlAutomatic
-        .Color = 13561798
+        .Color = RGB(198, 239, 206)
         .TintAndShade = 0
     End With
 
