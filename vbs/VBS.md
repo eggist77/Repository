@@ -29,8 +29,6 @@ pathGet.vbs
 procGet.vbs
 プロセスを取得するスクリプト
 
-reservedWordCheck.vbs
-
 template.vbs
 
 template.wsf
