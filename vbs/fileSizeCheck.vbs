@@ -7,7 +7,7 @@ sub main()
     Dim fso
     Dim folder
 
-    folderName = ""
+    folderName = " "
 
     Set fso = CreateObject("Scripting.FileSystemObject")
     Set folder = fso.GetFolder(folderName)
