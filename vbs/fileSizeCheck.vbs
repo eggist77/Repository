@@ -7,7 +7,7 @@ sub main()
     Dim fso
     Dim folder
 
-    folderName = "C:\Users\eggis\GDr\03_PC\GitHub\vbs"
+    folderName = ""
 
     Set fso = CreateObject("Scripting.FileSystemObject")
     Set folder = fso.GetFolder(folderName)
