@@ -1,5 +1,5 @@
 
-'nLib Version = 1.11
+'nLib Version = 1.2
 
 Function dateFormat(ByVal format)
 
@@ -68,4 +68,13 @@ Function isTextOnlyInFolder(ByVal folderName)
     Else
         isTextOnlyInFolder = False
     End If
+End Function
+
+Function getParameter(ByVal txt, ByVal delimiter)
+
+    buf = inStr(txt,delimiter)
+    If buf > 0 then
+        getParameter = trim(mid(txt,buf + 1,len(txt)))
+    end If
+
 End Function
