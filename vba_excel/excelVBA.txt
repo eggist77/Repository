@@ -22,3 +22,40 @@ Sub formatCondition()
     End With
 
 End Sub
+
+Sub initValue()
+
+    Dim initBoolean As Boolean
+    Dim initByte As Byte
+    Dim initInteger As Integer
+    Dim initLong As Long
+    Dim initSingle As Single
+    Dim initDouble As Double
+    Dim initCurrency As Currency
+    Dim initDate As Date
+    Dim initString As String
+    Dim initVariant As Variant
+    
+    'Print
+    Debug.Print "Boolean: " & initBoolean
+    Debug.Print "Byte: " & initByte
+    Debug.Print "Integer: " & initInteger
+    Debug.Print "Long: " & initLong
+    Debug.Print "Single: " & initSingle
+    Debug.Print "Double: " & initDouble
+    Debug.Print "Currency: " & initCurrency
+    Debug.Print "Date: " & initDate
+
+    'String
+    Debug.Print "String: " & initString
+    If vbNullString = initString Then
+        Debug.Print "String: vbNullString"
+    End If
+    
+    'Variant
+    Debug.Print "Variant: " & initVariant
+    If IsEmpty(initVariant) = True Then
+        Debug.Print "Variant: Empty"
+    End If
+    
+End Sub
