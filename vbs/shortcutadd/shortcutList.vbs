@@ -7,14 +7,31 @@ Dim crDir, f, line, ary, fName
 
 Call mail
 
+
 Sub mail()
 
     Dim scList : scList = "sclist.csv"
+    Dim excel
+    Dim folder
 
     Set fso = CreateObject("Scripting.FileSystemObject")
     Set wsh = CreateObject("WScript.Shell")
+    Set excel = CreateObject("Excel.Application")
 
     crDir = fso.getParentFolderName(WScript.ScriptFullName)
+
+    'DefaultFilePath Change'
+    excel.DefaultFilePath = crDir
+    Set excel = Nothing
+    Set excel = CreateObject("Excel.Application")
+
+    dlg = excel.FileDialog(msoFileDialogFolderPicker)
+    dlg.Show
+
+    End If
+
+
+    Exit Sub
 
     'File Check
     If fso.FileExists(crDir & "\" & scList) then
@@ -33,7 +50,7 @@ Sub mail()
     End If
 End Sub
 
-Sub shortCutAdd(scname,exePath)
+Sub shortCutList(scname,exePath)
 
 Dim shortCutFile
 
