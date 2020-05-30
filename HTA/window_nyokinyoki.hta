@@ -1,0 +1,49 @@
+<html>
+<head>
+<script type="text/javascript" language="JavaScript">
+
+// https://gamp.ameblo.jp/jackleman/entry-11225115317.html
+// ウィンドウがニョキニョキ出てくる。すげー
+
+var interval = 20; // ウィンドウ移動のインターバル(msec)
+var moveHPx = 2; // 移動量(横)
+var moveVPx = 2; // 移動量(縦)
+var winWidth = 300; // ウィンドウサイズ(幅)
+var winHeight = 100; // ウィンドウサイズ(高さ)
+var rightMargin = 10; // マージン(右)
+var bottomMargin = 10; // マージン(下)
+var setWinPosTop = screen.height - winHeight - bottomMargin; // ウィンドウ表示位置(上)
+var setWinPosLeft = screen.width - winWidth - rightMargin; // ウィンドウ表示位置(左)
+var defWinPosTop = setWinPosTop + winHeight; // 開始位置(上)
+var defWinPosLeft = setWinPosLeft; // 開始位置(左)
+
+// 指定位置方向へウィンドウを移動
+function winMoveSet(toLeft,toTop){
+   var moveLeft = 0;
+   var moveTop = 0;
+    var winLeft = window.screenLeft;
+    var winTop = window.screenTop;
+      // 移動量を減らす
+  if(moveHPx>(Math.abs(toLeft-winLeft)))moveHPx--;
+ if(moveVPx>(Math.abs(toTop-winTop)))moveVPx--;
+   // 移動設定
+     if(toLeft>winLeft)moveLeft++;
+    else if(toLeft<winLeft)moveLeft--;
+       if(toTop>winTop)moveTop++;
+       else if(toTop<winTop)moveTop--;
+  // window移動
+ window.moveBy(moveLeft,moveTop);
+    // 指定位置まで移動できたら終了
+   if(moveLeft==0 && moveTop==0){
+              clearInterval(timerMove);
+   }
+}
+// ウィンドウ初期サイズ設定
+window.resizeTo(winWidth,winHeight);
+// ウィンドウ初期位置設定
+window.moveTo(defWinPosLeft, defWinPosTop);
+// ウィンドウ移動
+timerMove = setInterval(function(){winMoveSet(setWinPosLeft, setWinPosTop);},interval);
+</script>
+<body>hogehoge
+</body></html>

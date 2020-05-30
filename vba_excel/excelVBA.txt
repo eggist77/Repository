@@ -1,28 +1,3 @@
-Sub formatCondition()
-
-    Dim r As Range
-    Dim formatCondition As FormatCondition
-    
-    '範囲設定
-    Set r = Range("A1:A5")
-    
-    '条件付き書式の追加
-    Set formatCondition = r.FormatConditions.Add(Type:=xlTextString, String:="OK", TextOperator:=xlContains)
-    
-    '書式の指定(濃い緑の文字、緑の背景)
-    With formatCondition.Font
-        .Color = RGB(0, 97, 0)
-        .TintAndShade = 0
-    End With
-    
-    With formatCondition.Interior
-        .PatternColorIndex = xlAutomatic
-        .Color = RGB(198, 239, 206)
-        .TintAndShade = 0
-    End With
-
-End Sub
-
 Sub initValue()
 
     Dim initBoolean As Boolean
