@@ -1,51 +1,69 @@
 'Iniファイル情報取得
-Function GetIniFileInfo(filepath)
 
-Dim fso
-Dim dic  'iniファイル用Dictionary
-Dim f  'iniファイル
-Dim line  'データ読み込み用
-Dim catDic  'カテゴリ用Dictionary
-Dim secName  'カテゴリ名
-Dim arrValue'キーと値の配列
+res = getINI("test","test","test.ini") 
 
-Set fso = CreateObject("Scripting.FileSystemObject")
-Set dic = CreateObject("Scripting.Dictionary")
+Function getINI(iniSection,iniKey,fileName)
 
-If fso.FileExists(filepath) Then
-	Set f = fso.OpenTextFile(filepath)
+'作成中。まだ動かない'
 
-	Do Until f.AtEndOfStream
-		line = Trim(f.ReadLine)
+msgbox "test"
 
-		'Section
-		If Left(line,1) = "[" And Right(line,1) = "]" Then
+	Dim fso
+	Dim dic  		'iniファイル用Dictionary
+	Dim f  			'iniファイル
+	Dim line  		'データ読み込み用
+	Dim sectionDic  	'セクション用Dictionary
+	Dim sectionName  	'セクション名
+	Dim arrValue	'キーと値の配列
+
+	iniSection = UCase(iniSection)
+	iniKey = UCase(iniKey)
+
+	Set fso = CreateObject("Scripting.FileSystemObject")
+	Set dic = CreateObject("Scripting.Dictionary")
+
+	If fso.FileExists(fileName) Then
+		Set f = fso.OpenTextFile(fileName)
+
+		Do Until f.AtEndOfStream
+			line = Trim(f.ReadLine)
 
 			'Section
-			secName = Mid(line, 2, Len(line) - 2)
+			If Left(line,1) = "[" And Right(line,1) = "]" Then
 
-			If Not dic.Exists(secName) Then
+				sectionName = Mid(line, 2, Len(line) - 2)
 
-			  Set catDic = CreateObject("Scripting.Dictionary")
-			  dic.Add secName, catDic
+				If Not dic.Exists(sectionName) Then
+				  Set sectionDic = CreateObject("Scripting.Dictionary")
+				  dic.Add sectionName, sectionDic
+				End If
+
+			ElseIf Left(line,1) = ";" Then
+
+			'Parameter
+			ElseIf Instr(line,"=") > 1 And sectionName <> "" Then
+
+				'Key & Value
+				arrValue = Split(line,"=")
+				dic(sectionName).Add Trim(arrValue(0)), Trim(Mid(Join(arrValue,"="), Len(arrValue(0)) + 2))
 			End If
-		
-		'Parameter
-		ElseIf Instr(line,"=") > 1 And secName <> "" Then
+		Loop
 
-			'Key & Value
-			arrValue = Split(line,"=")
-			dic(secName).Add Trim(arrValue(0)), Trim(Mid(Join(arrValue,"="), Len(arrValue(0)) + 2))
-		End If
-	Loop
+		f.Close
 
-	f.Close
-End If
+		'Dictionaryオブジェクトの要素の参照
+   		Dim str
+   		For Each Var In dic
+	   		str = str & Var & " : " & dic.Item(Var) & vbCrLf
+   		Next
 
-Set GetIniFileInfo = dic
+   		MsgBox str, vbInformation
 
-Set f = Nothing
-Set catDic = Nothing
-Set dic = Nothing
-Set fso = Nothing
+	End If
+
+	Set f = Nothing
+	Set sectionDic = Nothing
+	Set dic = Nothing
+	Set fso = Nothing
+
 End Function

@@ -46,13 +46,39 @@ name=value
 
 
 
+関数名
 
+
+
+
+
+引数
+
+iniSection：セクション名
+
+iniKey：キー名
+
+fileName：INIファイル名
 
 
 
 Dictionary（連想配列）を使う
 
+配列の要素の中に配列突っ込んでいるなコレ
 
+
+
+
+
+## 参考
+
+[初期化ファイル(INIファイル)の読み書き](http://home.a00.itscom.net/hatada/windows/file/profile01.html)
+
+[INIファイル - Wikipedia](https://ja.wikipedia.org/wiki/INI%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB)
+
+[[VBS]VBscriptからINIの内容を取得する](https://kuroparu.com/iniget/)
+
+[VBScript : ini ファイルの値を取得する](https://logicalerror.seesaa.net/article/129131803.html)
 
 
 
