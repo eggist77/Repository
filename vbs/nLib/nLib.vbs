@@ -1,5 +1,13 @@
 
-'nLib Version = 1.2
+'nLib Version = 1.3
+
+'- List -
+'dateFormat
+'isTextOnlyInFolder
+'getParameter
+'getFilePathDlgIE
+'getFilePathDlgExcel
+
 
 Function dateFormat(ByVal format)
 
@@ -76,5 +84,31 @@ Function getParameter(ByVal txt, ByVal delimiter)
     If buf > 0 then
         getParameter = trim(mid(txt,buf + 1,len(txt)))
     end If
+End Function
 
+Function getFilePathDlgIE()
+	Dim ie
+	Set ie = WScript.CreateObject("InternetExplorer.Application")
+	ie.Navigate "about:blank"
+	Do While ie.Busy = True And ie.ReadyState <> 4 'READYSTATE_COMPLETE = 4
+		WScript.Sleep 100
+	Loop
+
+	ie.document.write "<html><body><input type='file' id='selectFileDialog'></body></html>"
+	ie.document.getElementById("selectFileDialog").click
+	getFilePathDlgIE = ie.document.getElementById("selectFileDialog").Value
+
+	ie.Quit
+	Set objIE = Nothing
+End Function
+
+Function getFilePathDlgExcel()
+	Dim excel
+	Set excel = CreateObject("Excel.Application")
+	buf = excel.GetOpenFilename("Text File,*.txt,All,*.*",1,"ファイルを選択して下さい","開く",false)
+	If buf <> False Then
+		getFilePathDlgExcel = buf
+	Else
+	    WScript.Quit
+	End If
 End Function
