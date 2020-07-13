@@ -1,4 +1,4 @@
-nLib Version1.3
+nLib Version1.4
 
 
 
@@ -9,6 +9,7 @@ nLib Version1.3
 | 1.11    | dateFormat関数の処理を変更 |
 | 1.2     | getParameter関数を追加   |
 | 1.3 | getFilePathDlgIE関数、getFilePathDlgExcel関数を追加 |
+| 1.4 | dec2bin関数を追加 |
 
 
 
@@ -43,6 +44,12 @@ IEの機能を使ってファイル選択ダイアログでファイルパスを
 ## getFilePathDlgExcel関数
 
 Excelの機能を使ってファイル選択ダイアログでファイルパスを取得する
+
+
+
+## dec2bin関数
+
+10進数を2進数に変換する
 
 
 

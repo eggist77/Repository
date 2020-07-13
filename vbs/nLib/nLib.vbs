@@ -1,5 +1,5 @@
 
-'nLib Version = 1.3
+'nLib Version = 1.4
 
 '- List -
 'dateFormat
@@ -7,7 +7,7 @@
 'getParameter
 'getFilePathDlgIE
 'getFilePathDlgExcel
-
+'dec2bin
 
 Function dateFormat(ByVal format)
 
@@ -111,4 +111,27 @@ Function getFilePathDlgExcel()
 	Else
 	    WScript.Quit
 	End If
+End Function
+
+Function dec2bin(ByVal target)
+
+    Dim amari()
+    Dim i
+
+    i = 0
+    Do While target <> 0
+        ReDim Preserve amari(i)
+        amari(i) = target mod 2
+        target = target \ 2
+        i = i + 1
+    Loop
+
+    'list reverse
+    i = 0
+    For i = UBound(amari) To LBound(amari) Step -1
+        buf = buf & amari(i)
+    Next
+
+    dec2bin = buf
+
 End Function

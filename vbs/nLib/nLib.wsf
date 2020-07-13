@@ -2,7 +2,7 @@
 <script language="VBScript" src="./nLib.vbs"></script>
 <script language="VBScript">
 
-msgbox getParameter("name:  value    ",":")
+msgbox dec2bin(100)
 
 
 
