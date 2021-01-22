@@ -1,0 +1,10 @@
+<job id="main">
+<script language="VBScript" src="getINI.vbs"/>
+<script language="VBScript">
+
+    file = ".\test.ini"
+    msgbox getINI("Section1","key1",file)
+    msgbox getINI("Section2","key5",file)
+
+</script>
+</job>

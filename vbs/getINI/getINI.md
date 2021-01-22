@@ -8,7 +8,7 @@ iniファイルの値を取得するスクリプト
 
 ### セクション
 
-パラメータのグループ分けに使われる。セクションは必ず付ける。
+パラメータのグループ分けに使われる。セクションは必ず付ける必要がある。
 
 [section]
 
@@ -27,6 +27,8 @@ name=value
 ; comment
 
 
+
+## 特徴
 
 大文字と小文字の区別：区別あり
 
@@ -48,6 +50,8 @@ readINI：iniファイルの情報を連想配列に入れる。getINIに呼び�
 
 getINI：連想配列からセクションとキーに該当する値を取り出す
 
+
+
 ### 引数
 
 sectionName：セクション名
@@ -67,8 +71,3 @@ fileName：INIファイル名
 [[VBS]VBscriptからINIの内容を取得する](https://kuroparu.com/iniget/)
 
 [VBScript : ini ファイルの値を取得する](https://logicalerror.seesaa.net/article/129131803.html)
-
-
-
-
-
