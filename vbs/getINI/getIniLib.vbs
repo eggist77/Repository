@@ -1,11 +1,11 @@
 
-Function getINI(sectionName,keyName,fileName)
+Function getINI(sectionName,keyName,iniFile)
 
-    Set iniDic = readINI(fileName)
+    Set iniDic = readINI(iniFile)
     getINI = iniDic.Item(sectionName).Item(keyName)
 End Function
 
-Function readINI(fileName)
+Function readINI(iniFile)
 
     Dim fso         'file system object
     Dim sectionDic  'section Dictionary
@@ -18,8 +18,8 @@ Function readINI(fileName)
     Set fso = CreateObject("Scripting.FileSystemObject")
     Set dic = CreateObject("Scripting.Dictionary")
 
-    If fso.FileExists(fileName) Then
-        Set f = fso.OpenTextFile(fileName)
+    If fso.FileExists(iniFile) Then
+        Set f = fso.OpenTextFile(iniFile)
 
         Do Until f.AtEndOfStream
             line = Trim(f.ReadLine)
