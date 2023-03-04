@@ -1,35 +1,43 @@
-Sub initValue()
+Sub init_value()
 
-    Dim initBoolean As Boolean
-    Dim initByte As Byte
-    Dim initInteger As Integer
-    Dim initLong As Long
-    Dim initSingle As Single
-    Dim initDouble As Double
-    Dim initCurrency As Currency
-    Dim initDate As Date
-    Dim initString As String
-    Dim initVariant As Variant
+' ---------------------------------------------------
+' description: How to declare variables and check initial values
+' auther: n.
+' version: 1.0
+' since: 2023/03/04
+' update: 2023/03/04
+' ---------------------------------------------------
+
+    Dim init_boolean As Boolean
+    Dim init_byte As Byte
+    Dim init_integer As Integer
+    Dim init_long As Long
+    Dim init_single As Single
+    Dim init_double As Double
+    Dim init_currency As Currency
+    Dim init_date As Date
+    Dim init_string As String
+    Dim init_variant As Variant
     
     'Print
-    Debug.Print "Boolean: " & initBoolean
-    Debug.Print "Byte: " & initByte
-    Debug.Print "Integer: " & initInteger
-    Debug.Print "Long: " & initLong
-    Debug.Print "Single: " & initSingle
-    Debug.Print "Double: " & initDouble
-    Debug.Print "Currency: " & initCurrency
-    Debug.Print "Date: " & initDate
+    Debug.Print "Boolean: " & init_boolean
+    Debug.Print "Byte: " & init_byte
+    Debug.Print "Integer: " & init_integer
+    Debug.Print "Long: " & init_long
+    Debug.Print "Single: " & init_single
+    Debug.Print "Double: " & init_double
+    Debug.Print "Currency: " & init_currency
+    Debug.Print "Date: " & init_date
 
     'String
-    Debug.Print "String: " & initString
-    If vbNullString = initString Then
+    Debug.Print "String: " & init_string
+    If vbNullString = init_string Then
         Debug.Print "String: vbNullString"
     End If
     
     'Variant
-    Debug.Print "Variant: " & initVariant
-    If IsEmpty(initVariant) = True Then
+    Debug.Print "Variant: " & init_variant
+    If IsEmpty(init_variant) = True Then
         Debug.Print "Variant: Empty"
     End If
     
