@@ -4,8 +4,7 @@ Sub init_value()
 ' description: How to declare variables and check initial values
 ' auther: n.
 ' version: 1.0
-' since: 2023/03/04
-' update: 2023/03/04
+' since: 2023-03-04 update: 2023-03-04
 ' ---------------------------------------------------
 
     Dim init_boolean As Boolean
